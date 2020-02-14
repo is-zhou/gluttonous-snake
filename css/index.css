@@ -1,0 +1,68 @@
+#map {
+  width: 800px;
+  height: 500px;
+  background-color: lightslategray;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -250px;
+  margin-left: -400px;
+}
+#start {
+  width: 180px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -30px;
+  margin-left: -90px;
+  background-color: burlywood;
+  text-align: center;
+  z-index: 9999;
+}
+#menus {
+  width: 80px;
+  height: 100%;
+  position: absolute;
+  left: 100%;
+  background-color: burlywood;
+  text-align: center;
+}
+
+#menus p span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 5px;
+  display: block;
+  line-height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: lightslategray;
+  color: white;
+}
+#score {
+  width: 60px;
+  height: 30px;
+  border-radius: 10%;
+  line-height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: red;
+  color: white;
+}
+#difficulty_title,
+#score_title {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 10%;
+  border-top: lightslategray solid 5px;
+  color: lightslategray;
+  margin-bottom: 60px;
+}
+#score_title {
+  margin-top: 80px;
+}
