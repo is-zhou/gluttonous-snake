@@ -10,12 +10,12 @@
 }
 @media screen and (max-width: 700px) {
   #map {
-    width: 400px;
+    width: 250px;
     height: 600px;
     left: 50%;
     top: 50%;
-    margin-top: -200px;
-    margin-left: -300px;
+    margin-top: -300px;
+    margin-left: -125px;
   }
 }
 #start {
