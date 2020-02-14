@@ -8,14 +8,10 @@
   margin-top: -250px;
   margin-left: -400px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   #map {
     width: 250px;
     height: 500px;
-    left: 50%;
-    top: 50%;
-    margin-top: -250px;
-    margin-left: -125px;
   }
 }
 #start {
