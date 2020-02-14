@@ -8,6 +8,26 @@
   margin-top: -250px;
   margin-left: -400px;
 }
+@media screen and (max-width: 700px) {
+  #map {
+    width: 400px;
+    height: 250px;
+    left: 50%;
+    top: 50%;
+    margin-top: -200px;
+    margin-left: -125px;
+  }
+  #box {
+    position: absolute;
+    top: 320px;
+    width: 80px;
+    height: 120px;
+    border-radius: 10%;
+    border-top: lightslategray solid 5px;
+    border-bottom: lightslategray solid 5px;
+    color: lightslategray;
+  }
+}
 #start {
   width: 180px;
   height: 60px;
@@ -56,13 +76,128 @@
 #difficulty_title,
 #score_title {
   width: 100%;
-  height: 30px;
-  line-height: 30px;
+  height: 18px;
+  line-height: 18px;
   border-radius: 10%;
   border-top: lightslategray solid 5px;
   color: lightslategray;
-  margin-bottom: 60px;
 }
 #score_title {
-  margin-top: 80px;
+  margin-top: 20px;
+}
+#box {
+  position: fixed;
+  bottom: 100px;
+  width: 80px;
+  height: 160px;
+  border-radius: 10%;
+  border-top: lightslategray solid 5px;
+  border-bottom: lightslategray solid 5px;
+  color: lightslategray;
+}
+#btn_top,
+#btn_left,
+#btn_right,
+#btn_bottom,
+#btn_pause {
+  display: block;
+  background-color: lightslategray;
+  color: white;
+}
+#btn_pause {
+  height: 25px;
+  width: 60px;
+  margin: auto;
+  line-height: 25px;
+  margin-top: 20px;
+  border-radius: 10%;
+}
+#btn_top:active,
+#btn_left:active,
+#btn_right:active,
+#btn_bottom:active,
+#btn_pause:active {
+  background-color: red;
+}
+
+#btn_top {
+  height: 20px;
+  width: 40px;
+  margin: auto;
+  position: relative;
+  margin-top: 10px;
+}
+#btn_top ::after {
+  content: "";
+  width: 40px;
+  height: 20px;
+  left: 0;
+  border-bottom: solid 15px;
+  border-color: lightslategray;
+  border-radius: 100%;
+  position: absolute;
+}
+#btn_top:active ::after,
+#btn_left:active ::after,
+#btn_right:active ::after,
+#btn_bottom:active ::after {
+  border-color: red;
+}
+#btn_left {
+  width: 20px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+#btn_left ::after {
+  content: "";
+  width: 20px;
+  height: 40px;
+  left: 0;
+  border-right: solid 18px;
+  border-color: lightslategray;
+  border-radius: 100%;
+  position: absolute;
+}
+#btn_right {
+  width: 20px;
+  height: 40px;
+  line-height: 40px;
+  float: right;
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 2px;
+}
+#btn_right ::after {
+  content: "";
+  width: 20px;
+  height: 40px;
+  right: 0;
+  border-left: solid 18px;
+  border-color: lightslategray;
+  border-radius: 100%;
+  position: absolute;
+}
+#btn_bottom {
+  width: 40px;
+  height: 20px;
+  vertical-align: top;
+  clear: right;
+  margin: auto;
+  position: relative;
+}
+#btn_bottom ::after {
+  content: "";
+  width: 40px;
+  height: 20px;
+  top: -15px;
+  left: 0;
+  border-top: solid 15px;
+  border-color: lightslategray;
+  border-radius: 100%;
+  position: absolute;
 }

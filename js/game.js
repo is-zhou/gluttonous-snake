@@ -5,6 +5,7 @@
   var map = document.getElementById("map");
   var start = document.getElementById("start");
   var score = document.getElementById("score");
+  var box = document.getElementById("box");
   var difficultyOptions = document.getElementById("difficultyOptions");
   var eatenFood = null; //新吃到的食物对象
   var pause = null; //游戏状态是否暂停
@@ -17,6 +18,38 @@
   /* ==============获取或设置游戏难度=================== */
   //获取难度选择列表
   var sapnList = difficultyOptions.getElementsByTagName("span");
+  //获取操作按钮
+  var operationBoxList = box.getElementsByTagName("span");
+  for (var i = 0; i < operationBoxList.length; i++) {
+    operationBoxList[i].onclick = function() {
+      if (pause == true || pause == null) {
+        return;
+      }
+      if (this.innerText === "下" && snake.direction != "t") {
+        //按下键盘下并且蛇正在运行方向不是上
+        snake.direction = "b";
+      } else if (this.innerText === "左" && snake.direction != "r") {
+        //左
+        snake.direction = "l";
+      } else if (this.innerText === "右" && snake.direction != "l") {
+        //右
+        snake.direction = "r";
+      } else if (this.innerText === "上" && snake.direction != "b") {
+        //上
+        snake.direction = "t";
+      } else if (this.innerText === "暂停") {
+        //上
+        console.log("点击了暂停");
+
+        if (!pause) {
+          pause = true;
+          clearInterval(gameInterval);
+          console.log("暂停游戏");
+          start.style.display = "block";
+        }
+      }
+    };
+  }
   //设置默认选择难度1
   sapnList[0].style.background = "red";
   //遍历难度列表sapnList
