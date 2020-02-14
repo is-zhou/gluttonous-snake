@@ -11,21 +11,11 @@
 @media screen and (max-width: 700px) {
   #map {
     width: 400px;
-    height: 250px;
+    height: 600px;
     left: 50%;
     top: 50%;
     margin-top: -200px;
-    margin-left: -125px;
-  }
-  #box {
-    position: absolute;
-    top: 320px;
-    width: 80px;
-    height: 120px;
-    border-radius: 10%;
-    border-top: lightslategray solid 5px;
-    border-bottom: lightslategray solid 5px;
-    color: lightslategray;
+    margin-left: -300px;
   }
 }
 #start {
@@ -86,11 +76,10 @@
   margin-top: 20px;
 }
 #box {
-  position: fixed;
-  bottom: 100px;
   width: 80px;
   height: 160px;
   border-radius: 10%;
+  margin-top: 30px;
   border-top: lightslategray solid 5px;
   border-bottom: lightslategray solid 5px;
   color: lightslategray;
