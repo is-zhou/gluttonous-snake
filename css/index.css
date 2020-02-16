@@ -33,7 +33,7 @@
 }
 #start::before {
   content: "按空格键可开始/暂停游戏";
-  font-size: 0.3em;
+  font-size: 10px;
   color: lightslategray;
   display: block;
   height: 18px;
