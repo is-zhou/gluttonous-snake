@@ -4,6 +4,8 @@
   var settings = new Setting();
   var map = document.getElementById("map");
   var start = document.getElementById("start");
+  var operation_tip = document.getElementById("operation_tip");
+  var historic_high_score = document.getElementById("historic_high_score");
   var score = document.getElementById("score");
   var box = document.getElementById("box");
   var difficultyOptions = document.getElementById("difficultyOptions");
@@ -15,6 +17,13 @@
     max_y = map.offsetHeight / snake.height,
     min_x = -1,
     min_y = -1;
+  var newDifficulty = 0;
+  var historicHighScore = [
+    { difficulty: 0, score: 0 },
+    { difficulty: 1, score: 0 },
+    { difficulty: 2, score: 0 }
+  ]; //存储历史最高成绩
+
   /* ============首先在map上绘制基本图形================ */
   food.produceFood(map, snake.snakeList); //绘制产生的食物
   snake.produceSnake(map); //绘制蛇
@@ -41,6 +50,9 @@
       for (let j = 0; j < sapnList.length; j++) {
         sapnList[j].style.background = "lightslategray";
       }
+      //记录选择的难度项
+      newDifficulty = i;
+      getHistoricHighScore();
       //根据选择项设置游戏难度
       settings.difficulty = i + settings.degreeOfDifficulty;
       //设置选中样式
@@ -58,6 +70,7 @@
   function startGame() {
     pause = false; //把停止状态设置为false为不停止
     start.style.display = "none"; //设置开始按钮不可见
+    operation_tip.style.display = "none";
     gameInterval = setInterval(
       updatePicture,
       settings.speed / settings.difficulty
@@ -70,6 +83,7 @@
     clearInterval(gameInterval);
     console.log("暂停游戏");
     start.style.display = "block";
+    operation_tip.style.display = "block";
   }
   //更新画面函数
   function updatePicture() {
@@ -93,8 +107,10 @@
       food.delFood();
       food.produceFood(map, snake.snakeList);
       snake.direction = "r";
-      score.innerText = 0;
       snake.produceSnake(map);
+      setHistoricHighScore();
+      getHistoricHighScore();
+      score.innerText = 0;
       if (confirm("游戏结束，点击确定重新开始")) {
         startGame();
       }
@@ -121,6 +137,31 @@
   document.onkeydown = function(params) {
     perationDirection(params.keyCode);
   };
+  /* ==============存储最高成绩==================== */
+  function setHistoricHighScore() {
+    var new_score = parseInt(score.innerText); //获取当前得分
+    var historic_score = 0; //获取当前难度历史得分
+    var scoreDate = JSON.parse(localStorage.getItem("scoreDate"));
+    if (scoreDate != null) {
+      historic_score = scoreDate[newDifficulty].score;
+    } else {
+      historic_score = historicHighScore[newDifficulty].score;
+    }
+    new_score > historic_score
+      ? (historicHighScore[newDifficulty].score = new_score)
+      : (historicHighScore[newDifficulty].score = historic_score);
+
+    localStorage.setItem("scoreDate", JSON.stringify(historicHighScore));
+  }
+
+  /* ==============获取最高成绩==================== */
+  getHistoricHighScore();
+  function getHistoricHighScore() {
+    var scoreDate = JSON.parse(localStorage.getItem("scoreDate"));
+    if (scoreDate != null) {
+      historic_high_score.innerText = scoreDate[newDifficulty].score;
+    }
+  }
   /* ==============运行方向操作函数==================== */
   function perationDirection(params) {
     this.params = params.toString();

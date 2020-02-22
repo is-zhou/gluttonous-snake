@@ -8,17 +8,7 @@
   margin-top: -250px;
   margin-left: -400px;
 }
-@media screen and (max-width: 500px) {
-  #map {
-    width: 250px;
-    height: 600px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-top: 0;
-    margin-left: 0;
-  }
-}
+
 #start {
   width: 180px;
   height: 60px;
@@ -29,19 +19,35 @@
   margin-left: -90px;
   background-color: burlywood;
   text-align: center;
+  color: lightslategray;
   z-index: 9999;
 }
-#start::before {
-  content: "按空格键可开始/暂停游戏";
-  font-size: 13px;
-  color: lightslategray;
+#operation_tip {
+  width: 780px;
+  height: 80px;
+  position: absolute;
+  background-color: wheat;
+  opacity: 0.6;
+  bottom: 0;
+  padding: 0px 0px 20px 20px;
+  z-index: 9999;
+}
+#operation_tip > p {
+  text-align: center;
+}
+/* #start::before {
+  content: "按空格键可开始或暂停游戏";
+  font-size: 10px;
+  color: white;
   display: block;
   height: 18px;
+  line-height: 18px;
   width: 100%;
   text-align: center;
   position: absolute;
   bottom: 0;
-}
+  font-weight: 300;
+} */
 #menus {
   width: 80px;
   height: 100%;
@@ -52,12 +58,12 @@
 }
 
 #menus p span {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   margin-top: 5px;
   display: block;
-  line-height: 30px;
+  line-height: 25px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -75,6 +81,9 @@
   background-color: red;
   color: white;
 }
+#historic_high_score {
+  color: red;
+}
 #difficulty_title,
 #score_title {
   width: 100%;
@@ -83,9 +92,10 @@
   border-radius: 10%;
   border-top: lightslategray solid 5px;
   color: lightslategray;
+  margin: 0;
 }
 #score_title {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #box {
   width: 80px;
@@ -201,4 +211,20 @@
   border-color: lightslategray;
   border-radius: 100%;
   position: absolute;
+}
+@media screen and (max-width: 500px) {
+  #map {
+    width: 250px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    margin-left: 0;
+  }
+  #operation_tip {
+    width: 320px;
+    height: 110px;
+    padding: 0px 0px 10px 10px;
+  }
 }
