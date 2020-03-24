@@ -1,2 +1,2 @@
 # MyGluttonousSnake
-web前端贪吃蛇
+web前端原生js+html+css实现的简易贪吃蛇游戏
